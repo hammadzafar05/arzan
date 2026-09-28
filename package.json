@@ -1,18 +1,18 @@
 {
-  "name": "flarekit",
+  "name": "arzan",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "description": "A Laravel-style starter kit for full-stack apps on Cloudflare's free tier.",
   "license": "MIT",
   "author": "Hammad Zafar",
-  "homepage": "https://github.com/hammadzafar05/flarekit#readme",
+  "homepage": "https://github.com/hammadzafar05/arzan#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hammadzafar05/flarekit.git"
+    "url": "git+https://github.com/hammadzafar05/arzan.git"
   },
   "bugs": {
-    "url": "https://github.com/hammadzafar05/flarekit/issues"
+    "url": "https://github.com/hammadzafar05/arzan/issues"
   },
   "keywords": [
     "cloudflare",

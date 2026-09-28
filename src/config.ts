@@ -14,6 +14,6 @@ export type ExternalLink = { title: string; href: string; icon: LucideIcon };
 export const mainNav: NavItem[] = [{ title: "Dashboard", to: "/dashboard", icon: LayoutGrid }];
 
 export const footerLinks: ExternalLink[] = [
-  { title: "Repository", href: "https://github.com/hammadzafar05/flarekit", icon: FolderGit2 },
-  { title: "Documentation", href: "https://github.com/hammadzafar05/flarekit#readme", icon: BookOpen },
+  { title: "Repository", href: "https://github.com/hammadzafar05/arzan", icon: FolderGit2 },
+  { title: "Documentation", href: "https://github.com/hammadzafar05/arzan#readme", icon: BookOpen },
 ];

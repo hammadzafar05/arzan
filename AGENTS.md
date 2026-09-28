@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guidance for AI coding agents working in a Flarekit app. Read this before changing code.
+Guidance for AI coding agents working in an Arzan app. Read this before changing code.
 
 ## What this is
 One Cloudflare Worker serves a React single-page app (static assets) and a Hono API under `/api/*`. Data lives in D1 (SQLite) through Drizzle. Auth is Better Auth. Everything must keep working on the **Workers Free plan**.

@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Something in Flarekit doesn't work as described
+about: Something in Arzan doesn't work as described
 labels: bug
 ---
 

@@ -1,21 +1,23 @@
 <p align="center">
-  <img src="docs/screenshots/hero.png" alt="The Flarekit dashboard right after installing: desktop and phone, light and dark" width="900">
+  <img src="docs/screenshots/hero.png" alt="The Arzan dashboard right after installing: desktop and phone, light and dark" width="900">
   <br><sub>The dashboard right after installing: desktop and phone, light and dark.</sub>
 </p>
 
-# Flarekit
+# Arzan
 
 **A Laravel-style starter kit for full-stack apps on Cloudflare's free tier: auth, database, tests and one-command deploy, for $0/month.**
+
+**Arzan** (ارزاں) means *affordable* in Urdu: real apps on $0/month hosting.
 
 "Laravel-style" means the conventions, not PHP: accounts, starter layouts, settings and tests are ready on day one, there's one obvious place for everything, and deploying is one command. Underneath it's TypeScript: React + Vite + TanStack Router/Query + shadcn/ui on the front, Hono + D1 + Drizzle + Better Auth on the back, all served by **one Cloudflare Worker**. You own every line.
 
 ```sh
-npm create cloudflare@latest -- my-app --template=hammadzafar05/flarekit
+npm create cloudflare@latest -- my-app --template=hammadzafar05/arzan
 ```
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/hammadzafar05/flarekit) · **[Live demo](https://flarekit.softgrammer.com)** · [Quick start](#quick-start) · [Roadmap](#roadmap)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/hammadzafar05/arzan) · **[Live demo](https://arzan.softgrammer.com)** · [Quick start](#quick-start) · [Roadmap](#roadmap)
 
-### Why Flarekit
+### Why Arzan
 
 - **$0 hosting for real apps.** Pages are static assets (free and unlimited); only `/api/*` runs the Worker. Password hashing is tuned for the Free plan's 10 ms CPU limit.
 - **Made for AI coding agents.** `AGENTS.md` gives Claude Code, Cursor or Codex the architecture and the rules, so "build me a feature" stays secure and on the free tier.
@@ -33,13 +35,13 @@ npm create cloudflare@latest -- my-app --template=hammadzafar05/flarekit
 | **Quality** | Strict TypeScript, Biome, API tests on a real local D1, Playwright end-to-end tests (desktop + mobile), GitHub Actions CI |
 | **AI-ready** | `AGENTS.md` explains the architecture and conventions to coding agents (Claude Code, Cursor, Codex…) |
 
-## Built with Flarekit
+## Built with Arzan
 
-Built something with Flarekit? Share it in [Discussions](https://github.com/hammadzafar05/flarekit/discussions) and it can be featured here.
+Built something with Arzan? Share it in [Discussions](https://github.com/hammadzafar05/arzan/discussions) and it can be featured here.
 
 ## Coming from Laravel or Inertia?
 
-| Laravel | Flarekit |
+| Laravel | Arzan |
 |---|---|
 | `routes/web.php` + controllers | Pages: file routes in `src/routes/` (TanStack Router). API: Hono routers in `worker/routes/` |
 | Blade / Inertia pages | A React app built once into static files; pages fetch JSON from `/api/*` with TanStack Query |
@@ -52,10 +54,10 @@ Built something with Flarekit? Share it in [Discussions](https://github.com/hamm
 
 ## Why it fits the free tier
 
-| Free-plan limit | How Flarekit stays inside it |
+| Free-plan limit | How Arzan stays inside it |
 |---|---|
 | 100,000 Worker requests / day | The app is a single-page app served as **static assets, which are free and unlimited**. Only `/api/*` calls run the Worker (`run_worker_first`). |
-| 10 ms CPU per request | Better Auth's default password hashing on Workers is pure-JS scrypt (~150 ms) and can fail sign-ups with "exceeded CPU limit". Flarekit plugs in **native WebCrypto PBKDF2** (~20 ms, already running in production on the Free plan) — only sign-up, sign-in and password changes hash; every other request is cheap. |
+| 10 ms CPU per request | Better Auth's default password hashing on Workers is pure-JS scrypt (~150 ms) and can fail sign-ups with "exceeded CPU limit". Arzan plugs in **native WebCrypto PBKDF2** (~20 ms, already running in production on the Free plan) — only sign-up, sign-in and password changes hash; every other request is cheap. |
 | D1: 5 M row reads, 100 k writes / day, 500 MB | Sessions are one indexed lookup per request; rate-limit state is a single row per IP and endpoint. Add indexes for anything you filter on. |
 | Worker size 3 MB (gzipped) | The Worker bundle is ~370 KB gzipped. |
 
@@ -75,7 +77,7 @@ Built something with Flarekit? Share it in [Discussions](https://github.com/hamm
 ## Quick start
 
 ```sh
-npm create cloudflare@latest -- my-app --template=hammadzafar05/flarekit
+npm create cloudflare@latest -- my-app --template=hammadzafar05/arzan
 cd my-app
 cp .dev.vars.example .dev.vars   # then set BETTER_AUTH_SECRET (openssl rand -hex 32)
 npm run dev                      # http://localhost:5173 — app, API and a local D1 in one process
@@ -101,13 +103,13 @@ The first deploy creates the D1 database automatically, and the Worker applies `
 
 **Preview deployments** (one per branch or pull request) don't inherit bindings. Out of the box a preview has no database, and its API says so. To give previews their own database, so they never touch production data:
 ```sh
-npx wrangler d1 create flarekit-preview
+npx wrangler d1 create arzan-preview
 ```
 Then add it under `"previews"` in `wrangler.jsonc` (there's a commented example there). The Worker migrates it on the first request.
 
 **Option C — Deploy button** (works once the repository is public)
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/hammadzafar05/flarekit)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/hammadzafar05/arzan)
 
 ## Scripts
 
@@ -164,7 +166,7 @@ test/                   API tests    e2e/  Playwright tests
 
 ## Roadmap
 
-Improvements coming next, drawn from building real client apps on Flarekit. Progress is shared as it lands; ideas are welcome in Discussions.
+Improvements coming next, drawn from building real client apps on Arzan. Progress is shared as it lands; ideas are welcome in Discussions.
 
 - [ ] **Request helpers:** zod body validation with friendly errors, `fail()`, id helper, and in-batch guards that turn a race into a clear 409
 - [ ] **Example CRUD feature:** a list with server-side paging and filters kept in the URL, add/edit sheet, empty and error states, tests
