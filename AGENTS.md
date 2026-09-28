@@ -31,7 +31,7 @@ One Cloudflare Worker serves a React single-page app (static assets) and a Hono 
    - `csrf()` in `worker/app.ts` blocks cross-site form posts. Keep it ahead of every route.
    - Never add CORS headers with credentials, so browsers keep blocking cross-site JSON requests.
    - Send post-login redirects through `safeRedirect()`. It blocks open redirects such as `//evil.com` and `/\evil.com`.
-   - `public/_headers` sets a strict CSP (no inline scripts or styles from other origins). New third-party origins must be added there, or the browser blocks them. The e2e tests fail on any CSP violation.
+   - `public/_headers` sets a strict CSP (no inline scripts or styles from other origins). New third-party origins must be added there, or the browser blocks them. The e2e tests fail on any CSP violation. Only Cloudflare Web Analytics (`cloudflareinsights.com`) is allowed by default.
    - Emails are credentials. Never log their links outside local dev (`sendEmail` already enforces this).
 6. **Errors:** API errors are `{ error: "Human sentence" }` with a proper status. Show them to users as they are. Write them as instructions ("Please sign in to continue.").
 7. **UI:**

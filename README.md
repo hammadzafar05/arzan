@@ -177,6 +177,9 @@ Improvements coming next, drawn from building real client apps on Flarekit. Prog
 - **`The package "@cloudflare/workerd-linux-64" could not be found`** when running tests: npm skipped the platform binary (this happens with some mirrors or cached installs). Run `rm -rf node_modules && npm install`, or install the matching version: `npm i --no-save @cloudflare/workerd-linux-64@$(node -p "require('workerd/package.json').version")`.
 - **`npm run preview` shows old code after a rebuild:** stop and restart the preview server. Playwright reuses a running server locally (`reuseExistingServer`), so restart it before `npm run test:e2e` too.
 - **The Deploy button doesn't work:** it needs the repository to be public.
+- **The dashboard says "The API returned a web page instead of data":** requests to `/api/*` aren't reaching the Worker. Open `/api/health` on your site; it must return JSON. Check `run_worker_first: ["/api/*"]` in `wrangler.jsonc`, and that no route or Page Rule on your domain sends `/api/*` somewhere else.
+- **Signed out, or "something went wrong", after redeploying with a new database or `BETTER_AUTH_SECRET`:** old session cookies no longer match. Clear the site's data in your browser (or try a private window) and register again. Accounts don't carry over to a new database.
+- **CSP error for `cloudflareinsights.com`:** that's Cloudflare Web Analytics, and `public/_headers` allows it. If you add other analytics or third-party scripts, add their origins there too.
 
 ## License
 
