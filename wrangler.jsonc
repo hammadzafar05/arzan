@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "flarekit",
+  "name": "arzan",
   "main": "worker/index.ts",
   "compatibility_date": "2026-09-01",
   "compatibility_flags": ["nodejs_compat"],
@@ -21,11 +21,11 @@
 
   // Preview deployments (`npx wrangler preview`, used by Workers Builds for non-production
   // branches). Bindings are NOT inherited here, so previews get no database until you add one:
-  //   npx wrangler d1 create flarekit-preview   (then paste its id below)
-  // "previews": { "d1_databases": [{ "binding": "DB", "database_name": "flarekit-preview", "database_id": "<id>" }] },
+  //   npx wrangler d1 create arzan-preview   (then paste its id below)
+  // "previews": { "d1_databases": [{ "binding": "DB", "database_name": "arzan-preview", "database_id": "<id>" }] },
   "previews": {},
 
   // No database_id: wrangler creates the database on the first deploy.
   // The Worker applies drizzle/*.sql itself on its first request (worker/db/migrate.ts).
-  "d1_databases": [{ "binding": "DB", "database_name": "flarekit", "migrations_dir": "drizzle" }]
+  "d1_databases": [{ "binding": "DB", "database_name": "arzan", "migrations_dir": "drizzle" }]
 }

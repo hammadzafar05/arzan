@@ -4,4 +4,4 @@
 BETTER_AUTH_SECRET=
 # Optional: send real emails through Resend (free tier). Without it, emails are printed to the console.
 RESEND_API_KEY=
-EMAIL_FROM="Flarekit <onboarding@resend.dev>"
+EMAIL_FROM="Arzan <onboarding@resend.dev>"

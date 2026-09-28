@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest something Flarekit should include
+about: Suggest something Arzan should include
 labels: enhancement
 ---
 

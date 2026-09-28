@@ -64,7 +64,7 @@ function Welcome() {
       </header>
       <main className="mx-auto max-w-6xl px-4 pt-12 pb-20 sm:px-6 sm:pt-20">
         <div className="max-w-2xl space-y-6">
-          <p className="font-medium text-brand text-sm">Built with Flarekit</p>
+          <p className="font-medium text-brand text-sm">Built with Arzan</p>
           <h1 className="text-balance font-semibold text-4xl tracking-tight sm:text-5xl">
             {appConfig.name} is up and running.
           </h1>
@@ -79,7 +79,7 @@ function Welcome() {
               <Link to={session ? "/dashboard" : "/register"}>{session ? "Open dashboard" : "Create an account"}</Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="https://github.com/hammadzafar05/flarekit#readme" target="_blank" rel="noreferrer">
+              <a href="https://github.com/hammadzafar05/arzan#readme" target="_blank" rel="noreferrer">
                 Read the docs
               </a>
             </Button>

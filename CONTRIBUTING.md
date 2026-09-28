@@ -1,6 +1,6 @@
-# Contributing to Flarekit
+# Contributing to Arzan
 
-Thanks for helping! Flarekit aims to stay **small, readable and free-tier safe**, so every change is judged against those three.
+Thanks for helping! Arzan aims to stay **small, readable and free-tier safe**, so every change is judged against those three.
 
 ## Before you start
 - For anything bigger than a fix, open an issue or a Discussion first, so we agree on the approach before you write code.
@@ -21,4 +21,4 @@ npm run dev
 - Don't add dependencies without a reason in the PR description (bundle size and Free-plan CPU matter).
 
 ## Good first issues
-Look for the [`good first issue`](https://github.com/hammadzafar05/flarekit/labels/good%20first%20issue) label.
+Look for the [`good first issue`](https://github.com/hammadzafar05/arzan/labels/good%20first%20issue) label.

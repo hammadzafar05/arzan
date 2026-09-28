@@ -25,6 +25,6 @@ Label each one `good first issue` (and `enhancement` or `docs`).
 **Done when:** `npx wrangler deploy --dry-run` succeeds and the test passes.
 
 ## 5. README translation
-**Why:** Flarekit's first users include developers who read Urdu or Hindi first.
+**Why:** Arzan's first users include developers who read Urdu or Hindi first.
 **What:** `docs/README.ur.md` (or another language you know well), with the Quick start and Deploy sections, linked from the main README.
 **Done when:** the commands are copied exactly and the links work.
