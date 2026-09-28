@@ -1,8 +1,10 @@
 # Security headers for the app's pages and assets (Workers Static Assets reads this file).
 # API responses (/api/*) get theirs from secureHeaders() in worker/app.ts.
 # If you add third-party scripts, fonts or analytics, allow their origins in the CSP below.
+# cloudflareinsights.com is Cloudflare Web Analytics (free, cookieless), which Cloudflare injects
+# automatically when it's enabled for your site. Remove both entries if you don't use it.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY

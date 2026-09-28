@@ -1,20 +1,14 @@
 import { queryOptions } from "@tanstack/react-query";
 import { createAuthClient } from "better-auth/react";
+import { ServerError } from "./server-error";
+import { toSession } from "./session";
 
 /** Better Auth client. Talks to /api/auth on the same origin. */
 export const authClient = createAuthClient();
 
 export type Session = typeof authClient.$Infer.Session;
 
-/** An API error that carries the HTTP status (e.g. 503 = this deployment isn't set up). */
-export class ServerError extends Error {
-  constructor(
-    message: string,
-    readonly status: number,
-  ) {
-    super(message);
-  }
-}
+export { ServerError };
 
 export const sessionQuery = queryOptions({
   queryKey: ["session"],
@@ -23,7 +17,8 @@ export const sessionQuery = queryOptions({
     if (error) {
       throw new ServerError(error.message || error.statusText || `Request failed (${error.status})`, error.status);
     }
-    return data ?? null;
+    // Guard the shape: a bad response must redirect to login or show a clear error, never crash.
+    return toSession<Session>(data);
   },
   staleTime: 60_000,
   // A misconfigured server won't fix itself on retry; show the problem straight away.
