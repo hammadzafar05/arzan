@@ -1,0 +1,87 @@
+{
+  "name": "flarekit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A Laravel-style starter kit for full-stack apps on Cloudflare's free tier.",
+  "license": "MIT",
+  "author": "Hammad Zafar",
+  "homepage": "https://github.com/hammadzafar05/flarekit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hammadzafar05/flarekit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hammadzafar05/flarekit/issues"
+  },
+  "keywords": [
+    "cloudflare",
+    "cloudflare-workers",
+    "d1",
+    "hono",
+    "react",
+    "tanstack-router",
+    "tanstack-query",
+    "shadcn-ui",
+    "drizzle",
+    "better-auth",
+    "starter-kit",
+    "template",
+    "laravel",
+    "free-tier"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "npm run build && vite preview",
+    "deploy": "npm run build && wrangler deploy",
+    "typecheck": "tsc -b",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "db:generate": "drizzle-kit generate && node scripts/gen-migrations.mjs",
+    "db:studio": "drizzle-kit studio",
+    "cf-typegen": "wrangler types worker/worker-configuration.d.ts",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.104.0",
+    "@tanstack/react-router": "1.170.40",
+    "better-auth": "1.7.6",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "drizzle-orm": "0.45.3",
+    "hono": "4.13.9",
+    "lucide-react": "1.48.0",
+    "radix-ui": "1.6.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "sonner": "2.0.8",
+    "tailwind-merge": "3.7.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.14",
+    "@cloudflare/vite-plugin": "1.61.0",
+    "@cloudflare/workers-types": "^5.20260925.2",
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/vite": "4.3.3",
+    "@tanstack/router-plugin": "1.168.41",
+    "@types/node": "^22.20.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "drizzle-kit": "0.31.11",
+    "tailwindcss": "4.3.3",
+    "tw-animate-css": "1.4.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.1",
+    "vitest": "5.0.2",
+    "wrangler": "4.142.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

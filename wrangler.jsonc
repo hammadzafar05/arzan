@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "flarekit",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+
+  // The React app is served as static assets (free and unlimited on every plan).
+  // Only /api/* runs the Worker, so page loads never spend your 100k requests/day.
+  "assets": {
+    "directory": "./dist/client",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+
+  // Builds the app first whenever `wrangler deploy` / `wrangler preview` runs on a fresh checkout,
+  // so Workers Builds, the Deploy button and plain `npx wrangler deploy` all work with no build
+  // command configured. (If `npm run build` already ran, wrangler uses its output directly.)
+  "build": { "command": "npm run build" },
+
+  // Preview deployments (`npx wrangler preview`, used by Workers Builds for non-production
+  // branches). Bindings are NOT inherited here, so previews get no database until you add one:
+  //   npx wrangler d1 create flarekit-preview   (then paste its id below)
+  // "previews": { "d1_databases": [{ "binding": "DB", "database_name": "flarekit-preview", "database_id": "<id>" }] },
+  "previews": {},
+
+  // No database_id: wrangler creates the database on the first deploy.
+  // The Worker applies drizzle/*.sql itself on its first request (worker/db/migrate.ts).
+  "d1_databases": [{ "binding": "DB", "database_name": "flarekit", "migrations_dir": "drizzle" }]
+}
