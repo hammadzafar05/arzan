@@ -13,7 +13,7 @@
 npm create cloudflare@latest -- my-app --template=hammadzafar05/flarekit
 ```
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/hammadzafar05/flarekit) · **Live demo:** _coming soon_ · [Quick start](#quick-start) · [Roadmap](#roadmap)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/hammadzafar05/flarekit) · **[Live demo](https://flarekit.softgrammer.com)** · [Quick start](#quick-start) · [Roadmap](#roadmap)
 
 ### Why Flarekit
 
