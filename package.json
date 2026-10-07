@@ -31,8 +31,10 @@
     "free-tier"
   ],
   "scripts": {
+    "predev": "node scripts/dev-secret.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "prepreview": "node scripts/dev-secret.mjs",
     "preview": "npm run build && vite preview",
     "deploy": "npm run build && wrangler deploy",
     "typecheck": "tsc -b",

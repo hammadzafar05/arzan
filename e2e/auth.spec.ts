@@ -60,7 +60,7 @@ test("signed-out visitors are sent to log in, then back where they were", async 
 test("register, see the dashboard, update the profile", async ({ page }) => {
   await register(page, uniqueEmail());
   await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
-  await expect(page.getByText("Welcome back, Ada!")).toBeVisible();
+  await expect(page.getByText("Welcome, Ada!")).toBeVisible();
   await expect(page.getByText("Please verify your email address")).toBeVisible();
 
   await page.goto("/settings/profile");

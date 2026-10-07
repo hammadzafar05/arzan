@@ -19,7 +19,7 @@ export default defineConfig({
   ],
   webServer: {
     // The built app, served by the real Workers runtime with a local D1.
-    command: `npm run build && npx vite preview --port ${PORT} --strictPort`,
+    command: `node scripts/dev-secret.mjs && npm run build && npx vite preview --port ${PORT} --strictPort`,
     url: `http://localhost:${PORT}/api/health`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
