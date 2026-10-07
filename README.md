@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/screenshots/hero.png" alt="The Arzan dashboard right after installing: desktop and phone, light and dark" width="900">
+  <img src="https://raw.githubusercontent.com/hammadzafar05/arzan/main/docs/screenshots/hero.png" alt="The Arzan dashboard right after installing: desktop and phone, light and dark" width="900">
   <br><sub>The dashboard right after installing: desktop and phone, light and dark.</sub>
 </p>
 
@@ -85,6 +85,8 @@ npm run dev   # http://localhost:5173 — app, API and a local D1 in one process
 Or clone the repo and run `npm install` first. Requires Node 22+.
 
 The first `npm run dev` creates `.dev.vars` with a random `BETTER_AUTH_SECRET` (like Laravel's `key:generate`), and the database migrates itself on the first request. There's nothing else to set up.
+
+The new app is this repository minus Arzan's own files: `docs/`, `CONTRIBUTING.md`, `LICENSE` and the issue templates (`degit.json` lists them). It keeps the CI workflow, the tests, `AGENTS.md` and this README. Pick a license for your app yourself.
 
 Local emails (verification, password reset) are printed in the terminal running `npm run dev`; click the link there.
 
@@ -186,4 +188,4 @@ Improvements coming next, drawn from building real client apps on Arzan. Progres
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/hammadzafar05/arzan/blob/main/LICENSE)
