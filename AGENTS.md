@@ -6,7 +6,7 @@ Guidance for AI coding agents working in an Arzan app. Read this before changing
 One Cloudflare Worker serves a React single-page app (static assets) and a Hono API under `/api/*`. Data lives in D1 (SQLite) through Drizzle. Auth is Better Auth. Everything must keep working on the **Workers Free plan**.
 
 ## Commands
-- `npm run dev`: app + API + local D1 on http://localhost:5173
+- `npm run dev`: app + API + local D1 on http://localhost:5173 (the first run creates `.dev.vars` with a random secret)
 - `npm test`: Vitest API tests (real in-memory D1 via `getPlatformProxy`)
 - `npm run test:e2e`: Playwright (needs a built app; it runs `npm run preview` itself)
 - `npm run check`: lint + typecheck + test + build. **Run it before every commit.**

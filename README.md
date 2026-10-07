@@ -79,11 +79,12 @@ Built something with Arzan? Share it in [Discussions](https://github.com/hammadz
 ```sh
 npm create cloudflare@latest -- my-app --template=hammadzafar05/arzan
 cd my-app
-cp .dev.vars.example .dev.vars   # then set BETTER_AUTH_SECRET (openssl rand -hex 32)
-npm run dev                      # http://localhost:5173 — app, API and a local D1 in one process
+npm run dev   # http://localhost:5173 — app, API and a local D1 in one process
 ```
 
 Or clone the repo and run `npm install` first. Requires Node 22+.
+
+The first `npm run dev` creates `.dev.vars` with a random `BETTER_AUTH_SECRET` (like Laravel's `key:generate`), and the database migrates itself on the first request. There's nothing else to set up.
 
 Local emails (verification, password reset) are printed in the terminal running `npm run dev`; click the link there.
 
@@ -115,7 +116,7 @@ Then add it under `"previews"` in `wrangler.jsonc` (there's a commented example 
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | App + API + local D1 with hot reload (Vite + the Cloudflare plugin) |
+| `npm run dev` | App + API + local D1 with hot reload (Vite + the Cloudflare plugin). Creates `.dev.vars` with a random secret on the first run |
 | `npm run build` | Typecheck and build the app and the Worker |
 | `npm run preview` | Build, then run the production bundle locally in workerd |
 | `npm run deploy` | Build and deploy to Cloudflare |

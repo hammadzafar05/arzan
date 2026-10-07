@@ -1,4 +1,5 @@
-# Copy to .dev.vars for local development. In production set these as secrets:
+# `npm run dev` copies this to .dev.vars and fills in BETTER_AUTH_SECRET for local development.
+# In production set these as secrets:
 #   npx wrangler secret put BETTER_AUTH_SECRET
 # Required: a random string of at least 32 characters (e.g. `openssl rand -hex 32`).
 BETTER_AUTH_SECRET=

@@ -9,8 +9,7 @@ Thanks for helping! Arzan aims to stay **small, readable and free-tier safe**, s
 ## Setup
 ```sh
 npm install
-cp .dev.vars.example .dev.vars   # set BETTER_AUTH_SECRET (openssl rand -hex 32)
-npm run dev
+npm run dev   # creates .dev.vars with a random BETTER_AUTH_SECRET on the first run
 ```
 
 ## Every pull request

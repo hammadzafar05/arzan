@@ -5,7 +5,7 @@ import type { AppEnv } from "../env";
 export const dashboardRoutes = new Hono<AppEnv>().get("/", (c) => {
   const user = c.get("user")!;
   return c.json({
-    greeting: `Welcome back, ${user.name.split(" ")[0]}!`,
+    greeting: `Welcome, ${user.name.split(" ")[0]}!`,
     memberSince: user.createdAt,
     emailVerified: user.emailVerified,
   });

@@ -18,7 +18,7 @@ describe("sign up and sign in", () => {
 
     const dash = await browser.get("/api/dashboard");
     expect(dash.status).toBe(200);
-    expect(dash.body.greeting).toBe("Welcome back, Ada!");
+    expect(dash.body.greeting).toBe("Welcome, Ada!");
 
     const stored = await t.env.DB.prepare(
       "SELECT a.password FROM account a JOIN user u ON u.id = a.user_id WHERE u.email = ?",
