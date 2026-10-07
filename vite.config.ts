@@ -5,6 +5,17 @@ import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
+// wrangler.jsonc keeps `build` so a plain `wrangler deploy` (Workers Builds, the Deploy button) builds the app
+// first. The Cloudflare Vite plugin doesn't need it and warns on every start, so hide exactly that warning.
+// If the plugin warns about anything else, the whole warning is still shown.
+const warn = console.warn;
+console.warn = (...args: unknown[]) => {
+  const onlyBuild =
+    /not applicable when using Vite:\n {2}- `build` which is not relevant in the context of a Vite project\n*$/;
+  if (typeof args[0] === "string" && onlyBuild.test(args[0])) return;
+  warn(...args);
+};
+
 export default defineConfig({
   plugins: [
     tanstackRouter({
